@@ -1,0 +1,33 @@
+@import "./colors.scss";
+.primary {
+  background: rgb(26, 58, 121);
+  border: 0 none;
+  cursor: pointer;
+  color: var(--white);
+}
+.normal {
+  background-color: white;
+  border: 1px solid gray;
+  color: var(--black);
+  cursor: pointer;
+}
+.bordered-btns-inputs {
+  border-radius: 2.5rem;
+  border-color: rgb (232, 232, 232);
+  height: 2.1rem;
+}
+.submit-form-btn {
+  font-family: Roboto-Medium, sans-serif;
+  border-radius: 3.1rem;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  width: 50%;
+  @media (min-width: 991px) {
+    width: 50%;
+    margin-top: 2rem !important;
+  }
+  @media (min-width: 767px) {
+    // width: 50%;
+    margin-top: 2rem !important;
+  }
+}

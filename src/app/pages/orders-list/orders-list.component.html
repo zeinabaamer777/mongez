@@ -1,0 +1,96 @@
+<section class="wrapper">
+  <div class="container">
+    <!-- breadcrumbs-->
+    <!-- <div class="col-12">
+      <section class="breadcrumbs container">
+        <app-breadcrumbs [segments]="[
+        'breadcrumbs-segment.home',
+        'orders history'
+      ]"></app-breadcrumbs>
+      </section>
+    </div> -->
+    <!-- end breadcrumbs -->
+
+    <div class="orders mb-5">
+      <div class="title">
+        <h3 class="text-capitalize">orders history</h3>
+      </div>
+
+      <div class="">
+        <ng-container *ngIf="orders">
+          <tr *ngIf="orders?.length == 0">
+            <td colspan="6">
+              <h2 class="my-5 text-capitalize">
+                no orders avaliable
+              </h2>
+            </td>
+          </tr>
+        </ng-container>
+        <table *ngIf="orders" class="table table-striped">
+          <tbody *ngIf="orders">
+            <tr *ngFor="let order of orders">
+              <td class="img-cell">
+                <div class="img">
+                  <img [src]="order.items[0].image" [title]="order.id" onerror="this.src='assets/images/logo.png';">
+                </div>
+              </td>
+              <td scope="row" class="name_status">
+                Order {{order.id}}
+                <div [ngSwitch]="order.delivery_status">
+                  <span class="text-capitalize small order-status" *ngSwitchCase="'delivered'" [ngClass]="'delivered'">
+                    {{ order.delivery_status }}
+                  </span>
+
+                  <span class="text-capitalize small order-status" *ngSwitchCase="'PENDING'"
+                    [ngClass]="'default-color'">
+                    {{ order.delivery_status }}
+                  </span>
+
+                  <span class="text-capitalize small order-status" *ngSwitchCase="'CONFIRMED'" [ngClass]="'confirmed'">
+                    {{ order.delivery_status }}
+                  </span>
+
+                  <span class="text-capitalize small order-status" *ngSwitchCase="'CANCELLED'" [ngClass]="'cancelled'">
+                    {{ order.delivery_status }}
+                  </span>
+
+                  <span class="text-capitalize small order-status" *ngSwitchCase="'IN_SHIPPING'"
+                    [ngClass]="'processed'">
+                    {{ order.delivery_status }}
+                  </span>
+
+                  <span class="text-capitalize small order-status" *ngSwitchCase="'DELIVERED'" [ngClass]="'delivered'">
+                    {{ order.delivery_status }}
+                  </span>
+                </div>
+              </td>
+              <td class="img-cell" *ngIf="order.items[0].image">
+                <div class="img">
+                  <img [src]="order.items[0].image" [title]="order.id" onerror="this.src='assets/images/logo.png';">
+                </div>
+              </td>
+
+              <!-- <td class="name_status">
+                <p class="bold text-capitalize name">{{order.items[0].notes_text.length > 35 ?
+                  (order.items[0].notes_text.slice(0,
+                  35)
+                  +
+                  '...') : order.items[0].notes_text }}</p>
+
+              </td> -->
+              <td class="total-items">
+                {{order.items.length}} items
+              </td>
+              <td class="price">
+                <div class="bold">{{currency}} {{order.total_price | number: "1.0-2"}}</div>
+                <span>Est. {{currency}} {{order.estimation_fees | number: "1.0-2"}}</span>
+              <td>
+                <a [routerLink]="[order.order_id]" class="text-capitalize view-order">View details</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,10 @@
+<ul [class.bg]="bg" class="breadcrumbs">
+  <li *ngFor="let bcItem of segments;
+   let $index = index; let $last = last" title="{{ bcItem | translate }}">
+    <a *ngIf="!$last" [routerLink]="['/']" [ngClass]="{'active': $last}" class="home-route" style="cursor: pointer;">
+      <span>{{bcItem|translate }}</span>
+    </a>
+    <span class="separator" *ngIf="$index < segments.length - 1">/</span>
+    <span *ngIf="$last" class="active">{{ bcItem | translate }}</span>
+  </li>
+</ul>

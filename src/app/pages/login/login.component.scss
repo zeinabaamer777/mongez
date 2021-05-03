@@ -1,0 +1,79 @@
+@import "../../styles/colors.scss";
+@import "../../styles/mixin.scss";
+.container {
+  @include auth-form;
+  @include auth-header;
+}
+.btn-default {
+  background-color: $main-color;
+  border-color: $main-color;
+  color: $white;
+}
+a {
+  color: var(--bland);
+  font-size: 1.1rem;
+}
+
+.logo {
+  margin: 2.1rem 0;
+}
+.header {
+  margin-bottom: 1.7rem;
+  .sign-text {
+    font-weight: 600;
+    color: $main-color;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+  }
+}
+
+.btn {
+  border-radius: 1.1rem;
+}
+button[type="submit"] {
+  background: rgb(26, 58, 121);
+  border: 0 none;
+  cursor: pointer;
+}
+.btn {
+  .fa {
+    text-align: right;
+    float: left;
+    padding: 0.3rem 0.2rem;
+  }
+}
+
+input {
+  border-radius: 0.083rem;
+  border-color: rgb (232, 232, 232);
+}
+::-webkit-input-placeholder {
+  /* WebKit, Blink, Edge */
+  color: rgb(175, 175, 175);
+}
+:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: rgb(175, 175, 175);
+  opacity: 1;
+}
+::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: rgb(175, 175, 175);
+  opacity: 1;
+}
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: rgb(175, 175, 175);
+}
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: rgb(175, 175, 175);
+}
+
+::placeholder {
+  /* Most modern browsers support this now. */
+  color: rgb(175, 175, 175);
+}
+.bordered-link {
+  border-bottom: 2px solid var(--black);
+}

@@ -1,0 +1,138 @@
+@import "../../../styles/colors.scss";
+.wrapper {
+  position: relative;
+  display: block;
+  background-color: $main-color;
+  height: 6rem;
+  .navbar {
+    padding: 0.5rem 0;
+  }
+  .navbar-nav {
+    .nav-link {
+      cursor: pointer;
+      color: $white;
+      font-size: 1.4rem;
+      .material-icons {
+        vertical-align: middle;
+      }
+    }
+  }
+  .navbar-brand {
+    height: auto;
+    width: 18%;
+    height: 5rem;
+    padding-top: 0.1125rem;
+    padding-bottom: 0.1125rem;
+    img {
+      max-height: 100%;
+      height: 6rem;
+      width: 40%;
+      @media (max-width: 991px) {
+        width: auto;
+        max-width: 100%;
+      }
+    }
+    @media (max-width: 320px) {
+      width: 30%;
+      img {
+        width: auto;
+      }
+    }
+  }
+}
+
+/* ANIMATED X */
+.navbar-toggler {
+  border: none;
+  background: transparent !important;
+  &:focus {
+    outline: none;
+    background: transparent !important;
+  }
+  .icon-bar {
+    background: rgba(white, 0.8);
+    transform: rotate(0deg) translate(0px, 0px);
+    transition: ease all 0.2s;
+    display: block;
+    width: 22px;
+    height: 2px;
+    border-radius: 1px;
+    + .icon-bar {
+      margin-top: 4px;
+    }
+  }
+}
+.navbar-toggler {
+  &:not(.collapsed) .icon-bar {
+    &:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 4px);
+      transition: ease all 0.2s;
+    }
+    &:nth-child(2) {
+      opacity: 0;
+      transition: ease all 0.2s;
+    }
+    &:nth-child(3) {
+      transform: rotate(-45deg) translate(4px, -4px);
+      transition: ease all 0.2s;
+    }
+  }
+}
+
+// open like mobile
+@media (max-width: 991px) {
+  .navbar-collapse {
+    position: fixed;
+    top: 54px;
+    left: 0;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+    padding-top: 6rem;
+    height: 100%;
+    background: $main-color;
+    top: 0;
+    width: 35%;
+  }
+
+  .navbar-collapse.collapsing {
+    height: 100%;
+    left: -75%;
+    transition: height 0s ease;
+  }
+
+  .navbar-collapse.show {
+    height: 100%;
+    left: 0;
+    transition: left 400ms ease-in-out;
+  }
+
+  .navbar-toggler.collapsed ~ .navbar-collapse {
+    transition: left 400ms ease-in;
+  }
+}
+@media (max-width: 767px) {
+  .navbar-collapse {
+    width: 80%;
+  }
+}
+
+@media (max-width: 570px) {
+  .navbar-collapse {
+    width: 80%;
+  }
+}
+
+@keyframes fadeInDown {
+  0% {
+    -webkit-transform: translate3d(0, -100%, 0);
+    opacity: 0;
+    transform: translate3d(0, -100%, 0);
+  }
+
+  to {
+    -webkit-transform: translateZ(0);
+    opacity: 1;
+    transform: translateZ(0);
+  }
+}

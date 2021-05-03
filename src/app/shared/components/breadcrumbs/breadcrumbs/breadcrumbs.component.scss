@@ -1,0 +1,45 @@
+:host {
+  display: block;
+  padding: 0;
+  margin: 1rem 0;
+  @media (max-width: 767px) {
+    margin: 0.5rem 0;
+  }
+}
+
+.breadcrumbs {
+  flex-direction: row;
+  box-sizing: border-box;
+  display: flex;
+
+  list-style-type: none;
+  padding: 0;
+
+  span:first-of-type {
+    cursor: pointer;
+  }
+}
+
+span {
+  color: rgb(220, 220, 220);
+  font-size: 1rem;
+  font-family: Roboto-Regular, sans-serif;
+
+  &.active {
+    color: rgb(220, 220, 220);
+  }
+
+  &.separator {
+    padding: 0 5px;
+    &.home {
+      @media (max-width: 767px) {
+        // padding: 0;
+      }
+    }
+  }
+}
+
+.home-route {
+  font-family: Roboto-Regular, sans-serif;
+  color: rgb(220, 220, 220);
+}

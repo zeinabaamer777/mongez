@@ -1,0 +1,156 @@
+@import "../../styles/colors.scss";
+@import "../../styles/fonts.scss";
+* {
+  font-family: Roboto-Regular, sans-serif;
+}
+.title {
+  margin-bottom: 1rem;
+  margin-top: 3rem;
+
+  h3 {
+    font-family: Roboto-Medium, sans-serif;
+    text-transform: capitalize;
+    font-size: 1.8rem;
+    font-weight: 500;
+    @media (max-width: 991px) {
+      font-size: 0.75rem;
+    }
+  }
+}
+
+.table {
+  border: 1px solid #e2e2e2;
+  margin-bottom: 6rem;
+}
+thead {
+  background: #f2f2f2;
+  border-color: var(--light-grey);
+  color: var(--twilight-blue);
+
+  th {
+    border-bottom: 0;
+    vertical-align: middle;
+    color: var(--text-color);
+    text-align: center !important;
+  }
+}
+
+tbody {
+  td:not(.name_status) {
+    text-align: center;
+  }
+  td {
+    font-weight: 500;
+    font-family: Roboto-Regular, sans-serif;
+    font-size: 1.08rem;
+    @media (max-width: 991px) {
+      font-size: 0.75rem;
+    }
+    &.name_status {
+      text-align: left;
+      .name {
+        color: var(--black);
+        font-family: Roboto-Bold, sans-serif;
+        font-size: 1.2rem;
+        @media (max-width: 991px) {
+          font-size: 0.75rem;
+        }
+      }
+    }
+    &.price {
+      color: $main-color;
+      div {
+        margin-bottom: 0.4rem;
+      }
+    }
+
+    &.quantity {
+      color: rgb(205, 205, 210);
+    }
+    &.name {
+      color: var(--black);
+    }
+
+    &.img-cell {
+      width: 4.8rem;
+      img {
+        width: 100%;
+        position: relative;
+        display: block;
+      }
+      @media (max-width: 991px) {
+        width: 5rem;
+        img {
+          padding: 0.2rem;
+        }
+      }
+    }
+
+    a {
+      color: rgb(23, 55, 114);
+      cursor: pointer;
+    }
+  }
+  td:not(.img-cell) {
+    vertical-align: middle;
+  }
+}
+
+th,
+td {
+  padding: 1.2rem 0.75rem;
+  text-align: center;
+}
+th {
+  text-align: center !important;
+}
+
+tr:first-child {
+  td {
+    border-top: 0;
+  }
+}
+
+tr:last-child {
+  td {
+    border-bottom: none;
+  }
+}
+
+tr {
+  td:first-child {
+    text-align: center !important;
+  }
+}
+
+.bold {
+  font-weight: 600 !important;
+}
+.order-status {
+  font-size: 0.9rem;
+  margin-right: 1.5rem;
+  @media (max-width: 991px) {
+    font-size: 0.75rem;
+  }
+}
+.view-order {
+  font-size: 0.9rem;
+  @media (max-width: 991px) {
+    font-size: 0.75rem;
+  }
+}
+.processed {
+  color: #1e5eab;
+}
+.delivered {
+  color: #1ca112;
+}
+.cancelled {
+  color: #ce2c2c;
+}
+.default-color {
+  color: #6c757d;
+}
+.confirmed {
+  color: #ffe338;
+}

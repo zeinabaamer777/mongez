@@ -1,0 +1,17 @@
+@import "../../../styles/colors.scss";
+footer {
+  @media (min-width: 991px) {
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+  }
+}
+.wrapper {
+  background-color: $main-color;
+  height: 4rem;
+  color: #fff;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

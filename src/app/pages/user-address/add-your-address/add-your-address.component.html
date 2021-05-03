@@ -1,0 +1,79 @@
+<div class="wrapper pt-3">
+  <div class="container">
+    <div class="form mb-3">
+      <div class="title">
+        <h3 class="mb-3">your address</h3>
+        <hr>
+      </div>
+
+      <form [formGroup]="addressForm">
+        <div class="form-grid">
+          <div class="map">
+            <ngx-map></ngx-map>
+          </div>
+          <div>
+            <!-- <label>
+              Your place name: e.g.(home,work,..)
+            </label> -->
+            <input placeholder='Your place name: e.g.(home,work,..)' formControlName="title" class="form-control"
+              type="text" />
+            <small *ngIf="
+                addressForm.controls.title.touched &&
+                addressForm.controls.title.errors?.maxlength
+              " class="invalid-feedback">
+              Address Name must be less than 50 characters.
+            </small>
+          </div>
+
+          <div>
+            <!-- <label class="text-capitalize">
+              building number or name
+            </label> -->
+            <input placeholder="Building Number or Name" formControlName="building_no" class="form-control"
+              type="text" />
+            <small *ngIf="
+                addressForm?.controls?.building_no?.touched &&
+                addressForm?.controls?.building_no?.errors?.required
+              " class="invalid-feedback">
+              This field is required.
+            </small>
+          </div>
+
+          <div>
+            <!-- <label>
+              Floor Number
+            </label> -->
+            <input placeholder="Floor Number" formControlName="floor_no" class="form-control" type="number" />
+            <small *ngIf="
+                addressForm?.controls?.floor_no?.touched &&
+                addressForm?.controls?.floor_no?.errors?.required
+              " class="invalid-feedback">
+              This field is required.
+            </small>
+          </div>
+          <div>
+            <!-- <label>
+              Door Number
+            </label> -->
+            <input placeholder="Door Number" formControlName="door_no" class="form-control" type="text" />
+            <small *ngIf="
+                addressForm?.controls?.door_no?.touched &&
+                addressForm?.controls?.door_no?.errors?.required
+              " class="invalid-feedback">
+              This field is required.
+            </small>
+          </div>
+
+        </div>
+        <div class="d-flex justify-content-end">
+          <button class="btn default-button submit-btn" [disabled]="addressForm.invalid" type="button"
+            (click)="submit()">
+            Save
+          </button>
+
+        </div>
+      </form>
+    </div>
+
+  </div>
+</div>
