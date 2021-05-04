@@ -9,7 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class UserAddressComponent implements OnInit {
 
   constructor(private readonly router: Router,
-    private route: ActivatedRoute,) { }
+    private route: ActivatedRoute) { }
 
   ngOnInit(): void {
   }

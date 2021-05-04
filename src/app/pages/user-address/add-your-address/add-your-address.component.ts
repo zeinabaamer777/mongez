@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { AddressManager } from '../../../@core/managers/address.manager';
@@ -16,6 +16,7 @@ export class AddYourAddressComponent implements OnInit {
   public addressForm: FormGroup;
   public hasFormError: boolean;
   currentAddress;
+  @Output() stepValiditiyChanged: EventEmitter<any> = new EventEmitter<any>();
 
   constructor(
     private formBuilder: FormBuilder,
@@ -43,10 +44,10 @@ export class AddYourAddressComponent implements OnInit {
 
   initAddressForm() {
     this.addressForm = this.formBuilder.group({
-      title: ['', [Validators.required]],
-      building_no: ['', [Validators.required]],
-      floor_no: ['', [Validators.required]],
-      door_no: ['', [Validators.required]],
+      address: ['', [Validators.required]],
+      building: ['', [Validators.required]],
+      floor: ['', [Validators.required]],
+      door: ['', [Validators.required]],
     });
     this.loadForm = true;
   }
@@ -57,7 +58,18 @@ export class AddYourAddressComponent implements OnInit {
       return;
     }
     const payload = { ...this.addressForm.value };
-    // this.addressManager.addAddress(payload)
+    this.addressManager.addAddress(payload)
   }
 
+
+  stepValid() {
+    let valid;
+    valid = this.addressForm?.value
+    this.stepValiditiyChanged.emit({
+      valid,
+      // currentAddress: this.currentAddress,
+      addressForm: this.addressForm?.value
+    });
+    return valid;
+  }
 }

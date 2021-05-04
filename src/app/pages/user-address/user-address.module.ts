@@ -8,9 +8,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { MapComponent } from './search-map/map/map.component';
 import { SearchComponent } from './search-map/search/search.component';
 import { GoogleMapsModule } from '@angular/google-maps';
+import { SearchMapComponent } from './search-map/search-map.component';
 
 @NgModule({
-  declarations: [UserAddressComponent, AddYourAddressComponent, MapComponent, SearchComponent],
+  declarations: [UserAddressComponent,
+    AddYourAddressComponent,
+    MapComponent,
+    SearchComponent,
+    SearchMapComponent
+  ],
   imports: [
     GoogleMapsModule,
     CommonModule,
@@ -18,6 +24,9 @@ import { GoogleMapsModule } from '@angular/google-maps';
     FormsModule,
     ReactiveFormsModule,
     UserAddressRoutingModule
+  ],
+  exports: [
+    AddYourAddressComponent
   ]
 })
 export class UserAddressModule { }

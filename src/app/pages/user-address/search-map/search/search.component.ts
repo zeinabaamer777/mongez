@@ -10,16 +10,19 @@ export class SearchComponent implements OnInit {
   @Output()
   positionChanged: EventEmitter<PositionModel> = new EventEmitter<PositionModel>();
 
-  @ViewChild('search', { static: true })
-  searchElementRef: ElementRef;
-
-  constructor(private ngZone: NgZone) {}
+  // @ViewChild('search', { static: true }) searchElementRef: ElementRef;
+  @ViewChild('search')
+  public searchElementRef: ElementRef;
+  constructor(private ngZone: NgZone) { }
 
   ngOnInit() {
-    const autocomplete = new google.maps.places.Autocomplete(
-      this.searchElementRef.nativeElement, { types: ['address'] },
-    );
-
+    // const autocomplete = new google.maps.places.Autocomplete(
+    //   this.searchElementRef.nativeElement, { types: ['address'] },
+    // );
+    // const autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement);
+    let autocomplete = new window['google']['maps']['places']['Autocomplete'](this.searchElementRef.nativeElement, {
+      types: ["address"]
+    });
     autocomplete.addListener('place_changed', () => {
       this.ngZone.run(() => {
         // get the place result

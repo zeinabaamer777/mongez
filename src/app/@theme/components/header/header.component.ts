@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NbMediaBreakpointsService, NbMenuService, NbSidebarService, NbThemeService } from '@nebular/theme';
 
-import { UserData } from '../../../@core/data/users';
+// import { UserData } from '../../../@core/data/users';
 import { LayoutService } from '../../../@core/utils';
 import { map, takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
@@ -20,7 +20,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   currentTheme = 'default';
 
-  userMenu = [{ title: 'Profile' }, { title: 'Log out' }];
+  userMenu = [{ title: 'Log out' }];
 
   constructor(private sidebarService: NbSidebarService,
     private menuService: NbMenuService,
@@ -80,10 +80,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
   onItemSelection(title) {
     if (title === 'Log out') {
       this.authService.logout();
-      console.log('Log out Clicked ')
-    } else if (title === 'Profile') {
-      // Do something on Profile
-      console.log('Profile Clicked ')
     }
   }
 }

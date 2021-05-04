@@ -1,25 +1,20 @@
 <div class="wrapper pt-3">
-  <div class="container">
+  <div class="">
     <div class="form mb-3">
-      <div class="title">
-        <h3 class="mb-3">your address</h3>
-        <hr>
-      </div>
-
       <form [formGroup]="addressForm">
+        <div class="mb-3 map">
+          <ngx-search-map></ngx-search-map>
+        </div>
         <div class="form-grid">
-          <div class="map">
-            <ngx-map></ngx-map>
-          </div>
           <div>
             <!-- <label>
               Your place name: e.g.(home,work,..)
             </label> -->
-            <input placeholder='Your place name: e.g.(home,work,..)' formControlName="title" class="form-control"
+            <input placeholder='Your place name: e.g.(home,work,..)' formControlName="address" class="form-control"
               type="text" />
             <small *ngIf="
-                addressForm.controls.title.touched &&
-                addressForm.controls.title.errors?.maxlength
+                addressForm.controls.address.touched &&
+                addressForm.controls.address.errors?.maxlength
               " class="invalid-feedback">
               Address Name must be less than 50 characters.
             </small>
@@ -29,11 +24,10 @@
             <!-- <label class="text-capitalize">
               building number or name
             </label> -->
-            <input placeholder="Building Number or Name" formControlName="building_no" class="form-control"
-              type="text" />
+            <input placeholder="Building Number or Name" formControlName="building" class="form-control" type="text" />
             <small *ngIf="
-                addressForm?.controls?.building_no?.touched &&
-                addressForm?.controls?.building_no?.errors?.required
+                addressForm?.controls?.building?.touched &&
+                addressForm?.controls?.building?.errors?.required
               " class="invalid-feedback">
               This field is required.
             </small>
@@ -43,10 +37,10 @@
             <!-- <label>
               Floor Number
             </label> -->
-            <input placeholder="Floor Number" formControlName="floor_no" class="form-control" type="number" />
+            <input placeholder="Floor Number" formControlName="floor" class="form-control" type="number" />
             <small *ngIf="
-                addressForm?.controls?.floor_no?.touched &&
-                addressForm?.controls?.floor_no?.errors?.required
+                addressForm?.controls?.floor?.touched &&
+                addressForm?.controls?.floor?.errors?.required
               " class="invalid-feedback">
               This field is required.
             </small>
@@ -55,10 +49,10 @@
             <!-- <label>
               Door Number
             </label> -->
-            <input placeholder="Door Number" formControlName="door_no" class="form-control" type="text" />
+            <input placeholder="Door Number" formControlName="door" class="form-control" type="text" />
             <small *ngIf="
-                addressForm?.controls?.door_no?.touched &&
-                addressForm?.controls?.door_no?.errors?.required
+                addressForm?.controls?.door?.touched &&
+                addressForm?.controls?.door?.errors?.required
               " class="invalid-feedback">
               This field is required.
             </small>
@@ -70,7 +64,6 @@
             (click)="submit()">
             Save
           </button>
-
         </div>
       </form>
     </div>

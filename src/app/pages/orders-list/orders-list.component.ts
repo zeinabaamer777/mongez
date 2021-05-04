@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { OrderHistoryModel } from '../../@core/models/order-history.model';
 import { OrdersHistoryManager } from '../../@core/managers/orders-history.manager';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-orders-list',
@@ -11,7 +12,9 @@ export class OrdersListComponent implements OnInit {
   orders: OrderHistoryModel[];
   currency: string = 'LE';
 
-  constructor(private ordersHistoryManager: OrdersHistoryManager) { }
+  constructor(private ordersHistoryManager: OrdersHistoryManager,
+    private readonly router: Router,
+    private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.ordersHistoryManager.ordersHistory$.subscribe(res => {
@@ -22,4 +25,7 @@ export class OrdersListComponent implements OnInit {
     this.ordersHistoryManager.getOrders();
   }
 
+  addNewOrder() {
+    this.router.navigate(['add-order'], { relativeTo: this.route });
+  }
 }
