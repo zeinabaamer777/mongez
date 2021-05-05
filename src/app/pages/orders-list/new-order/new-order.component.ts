@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, NgZone, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CartManager } from '../../../@core/managers/cart.manager';
 
@@ -67,3 +67,4 @@ export class NewOrderComponent implements OnInit {
     console.log("evt= ", evt)
   }
 }
+
