@@ -12,6 +12,10 @@ import { ThemeModule } from './@theme/theme.module';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ToastrModule } from 'ngx-toastr';
+import { AgmCoreModule } from '@agm/core';
+import {AccordionModule} from 'primeng/accordion';     //accordion and accordion tab
+import {MenuItem} from 'primeng/api'
+import {GMapModule} from 'primeng/gmap';
 
 import {
   NbChatModule,
@@ -30,9 +34,12 @@ import { CommonModule } from '@angular/common';
   imports: [
     BrowserModule,
     CommonModule,
+    GMapModule,
     BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
+    AccordionModule,
+
     NbSidebarModule.forRoot(),
     NbMenuModule.forRoot(),
     NbDatepickerModule.forRoot(),
@@ -41,6 +48,10 @@ import { CommonModule } from '@angular/common';
     NbToastrModule.forRoot(),
     ToastrModule.forRoot({
       positionClass: 'toast-top-right'
+    }),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyC3AzrmrAHBe5zecIfwGh3EQ7lM9LfNzno',
+      libraries: ['places']
     }),
     NbChatModule.forRoot({
       messageGoogleMapKey: 'AIzaSyA_wNuCzia92MAmdLRzmqitRGvCF7wCZPY',

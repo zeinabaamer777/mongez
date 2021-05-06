@@ -7,6 +7,7 @@ import { PagesRoutingModule } from './pages-routing.module';
 import { OrdersListModule } from './orders-list/orders-list.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   imports: [
@@ -15,6 +16,7 @@ import { CommonModule } from '@angular/common';
     NbMenuModule,
     OrdersListModule,
     FormsModule,
+    AgmCoreModule,
     ReactiveFormsModule,
     CommonModule
   ],

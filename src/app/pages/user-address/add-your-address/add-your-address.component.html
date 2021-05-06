@@ -3,16 +3,13 @@
     <div class="form mb-3">
       <form [formGroup]="addressForm">
         <div class="mb-3 map">
-          <!-- <ngx-search-map></ngx-search-map> -->
-          <div>
-            <input placeholder="search for location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text"
-              class="form-control" #search>
-          </div>
-
-          <div class="map" #map></div>
+          <ngx-search-map></ngx-search-map>
         </div>
         <div class="form-grid">
           <div>
+            <!-- <label>
+              Your place name: e.g.(home,work,..)
+            </label> -->
             <input placeholder='Your place name: e.g.(home,work,..)' formControlName="address" class="form-control"
               type="text" />
             <small *ngIf="
@@ -24,6 +21,9 @@
           </div>
 
           <div>
+            <!-- <label class="text-capitalize">
+              building number or name
+            </label> -->
             <input placeholder="Building Number or Name" formControlName="building" class="form-control" type="text" />
             <small *ngIf="
                 addressForm?.controls?.building?.touched &&
@@ -34,6 +34,9 @@
           </div>
 
           <div>
+            <!-- <label>
+              Floor Number
+            </label> -->
             <input placeholder="Floor Number" formControlName="floor" class="form-control" type="number" />
             <small *ngIf="
                 addressForm?.controls?.floor?.touched &&

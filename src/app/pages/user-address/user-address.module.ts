@@ -9,6 +9,9 @@ import { MapComponent } from './search-map/map/map.component';
 import { SearchComponent } from './search-map/search/search.component';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { SearchMapComponent } from './search-map/search-map.component';
+import { AgmCoreModule } from '@agm/core';
+import {GMapModule} from 'primeng/gmap';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [UserAddressComponent,
@@ -18,9 +21,12 @@ import { SearchMapComponent } from './search-map/search-map.component';
     SearchMapComponent
   ],
   imports: [
+    // BrowserAnimationsModule,
     GoogleMapsModule,
     CommonModule,
+    GMapModule,
     // BrowserModule,
+    // AgmCoreModule,
     FormsModule,
     ReactiveFormsModule,
     UserAddressRoutingModule
